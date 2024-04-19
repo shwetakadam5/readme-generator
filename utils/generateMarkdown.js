@@ -10,11 +10,21 @@ function renderLicenseLink(license) { }
 // If there is no license, return an empty string
 function renderLicenseSection(license) { }
 
+//Function to render the title
+function renderTitle(title) {
+  return `# ${title}\n\n`;
+}
+
+//Function to render the title
+function renderDescription(projectMotivation, projectReason, projectSolution, projectLearnings) {
+  return `## Description \n \- ${projectMotivation} \n \- ${projectReason} \n \- ${projectSolution} \n \- ${projectLearnings} \n`;
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  return `# ${data.title}
+  let markdownString = "" + renderTitle(data.title) + renderDescription(data.descMotivation, data.descReason, data.descSolution, data.descLearnings);
 
-`;
+  return markdownString;
 }
 
 module.exports = {

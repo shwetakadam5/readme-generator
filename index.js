@@ -6,7 +6,12 @@ const { generateMarkdown } = require('./utils/generateMarkdown.js')
 
 // TODO: Create an array of questions for user input
 const questions = [
-    [ "input", "title", "What is your project title?", "defaulttitle" ],
+    [ "input", "title", "What is your project title?", "defaulttitle", true ],
+    [ "confirm", "writeDesc", " Do you want to proceed to update the description?", "", true ],
+    [ "input", "descMotivation", " What was your motivation?", "", ((answers) => answers.writeDesc) ],
+    [ "input", "descReason", " Why did you build this project?", "", ((answers) => answers.writeDesc) ],
+    [ "input", "descSolution", " What problem does it solve?", "", ((answers) => answers.writeDesc) ],
+    [ "input", "descLearnings", " What did you learn?", "", ((answers) => answers.writeDesc) ],
 ];
 
 // TODO: Create a function to write README file
@@ -23,6 +28,7 @@ async function init() {
                     name: question[ 1 ],
                     message: question[ 2 ],
                     default: question[ 3 ],
+                    when: question[ 4 ],
                 }
             }));
     console.log(answer);
