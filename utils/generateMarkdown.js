@@ -139,9 +139,9 @@ function renderUsage(usageInstructions, repoLink, appLink) {
   let usageInfo = `\n\n## Usage \n\t ${usageInstructions}`;
 
   if (repoLink == "") {
-    usageInfo += `\n\n URL for Repository : 📝 **Update the correct URL**`;
+    usageInfo += `\n\n URL for Repository : 📝 **Update the correct URL** \n`;
   } else {
-    usageInfo += `\n\n URL for Repository : \[${repoLink}\]\(${repoLink}\)`;
+    usageInfo += `\n\n URL for Repository :  \[${repoLink}\]\(${repoLink}\) \n`;
   }
 
   if (appLink == "") {
@@ -152,13 +152,13 @@ function renderUsage(usageInstructions, repoLink, appLink) {
 
   return usageInfo;
 
-  // return `\n\n## Usage \n\t ${usageInstructions} \n\n URL for Repository : \[${repoLink}\]\(${repoLink}\) \n\n URL for deployed application : \[${appLink}\]\(${appLink}\) \n`;
+
 }
 
 //Function to render the installation
 function renderUsageScreenshots(usageScreenshot) {
   if (!tableOfContentList.includes("Usage")) { tableOfContentList.push("Usage"); }
-  //![alt text](assets/images/screenshot.png)
+
   if (usageScreenshot == "./assets/images/*.*") {
     usageScreenshot = `./assets/images/⛔️`;
     return `\n\!\[Image Unavailable\]\(${usageScreenshot}\) \n`;
@@ -167,6 +167,22 @@ function renderUsageScreenshots(usageScreenshot) {
     return `\n\!\[Image Unavailable\]\(${usageScreenshot}\) \n`;
   }
 
+
+}
+
+
+
+//Function to render the installation
+function renderQuestionsSection(gitHubProfile, emailAddress) {
+  if (!tableOfContentList.includes("Questions")) { tableOfContentList.push("Questions"); }
+  //https://github.com/shwetakadam5
+  let contactInfo = `\n\n## Questions \n\t For any queries, please feel free to contact on the following :`;
+
+  contactInfo += `\n\n\> \- Git Hub Profile : \<${gitHubProfile}\>`;
+
+  contactInfo += `\n\n\> \- E-mail Address : \<${emailAddress}\>`;
+
+  return contactInfo;
 
 }
 
@@ -181,6 +197,7 @@ function generateMarkdown(data) {
     + ((data.writeUsage) ? renderUsage(data.usageInstructions, data.usageRepoLink, data.usageAppLink) : "")
     + ((data.writeUsageScreenshot) ? renderUsageScreenshots(data.usageScreenshot) : "")
     + ((data.writeLicense) ? renderLicenseSection(data.licenseInfo) : "")
+    + ((data.writeQuestions) ? renderQuestionsSection(data.questionsGitHubProfile, data.questionsEmailId) : "")
     ;
 
   return markdownString;
