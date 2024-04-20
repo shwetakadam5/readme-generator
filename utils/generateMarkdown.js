@@ -1,5 +1,5 @@
 var tableOfContentList = [];
-// TODO: Create a function that returns a license badge based on which license is passed in
+
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
 
@@ -36,7 +36,6 @@ function renderLicenseBadge(license) {
   }
 }
 
-// TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
 
@@ -75,7 +74,7 @@ function renderLicenseLink(license) {
 
 }
 
-// TODO: Create a function that returns the license section of README
+
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   tableOfContentList.push("License");
@@ -133,7 +132,7 @@ function renderInstallationDetails(installationSteps) {
   return `\n\n## Installation \n\t ${installationSteps} \n`;
 }
 
-//Function to render the installation
+//Function to render the usage
 function renderUsage(usageInstructions, repoLink, appLink) {
   tableOfContentList.push("Usage");
   let usageInfo = `\n\n## Usage \n\t ${usageInstructions}`;
@@ -155,7 +154,7 @@ function renderUsage(usageInstructions, repoLink, appLink) {
 
 }
 
-//Function to render the installation
+//Function to render the Usage screenshot
 function renderUsageScreenshots(usageScreenshot) {
   if (!tableOfContentList.includes("Usage")) { tableOfContentList.push("Usage"); }
 
@@ -172,10 +171,10 @@ function renderUsageScreenshots(usageScreenshot) {
 
 
 
-//Function to render the installation
+//Function to render the questions
 function renderQuestionsSection(gitHubProfile, emailAddress) {
   if (!tableOfContentList.includes("Questions")) { tableOfContentList.push("Questions"); }
-  //https://github.com/shwetakadam5
+
   let contactInfo = `\n\n## Questions \n\>\*For any queries, please feel free to contact on the following :\*`;
 
   contactInfo += `\n\>\> \- Git Hub Profile : \<${gitHubProfile}\>`;
@@ -183,6 +182,23 @@ function renderQuestionsSection(gitHubProfile, emailAddress) {
   contactInfo += `\n\>\> \- E-mail Address : \<${emailAddress}\>`;
 
   return contactInfo;
+
+}
+
+
+//Function to render the contributions
+function renderContributionsSection(repoName) {
+  if (!tableOfContentList.includes("Contributions")) { tableOfContentList.push("Contributions"); }
+
+  let contributionsInfo = `\n\n## Contributions`;
+  contributionsInfo += `\n\[\!\[Contributor Covenant\]\(https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg\)\]\(https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md\) \n`
+  contributionsInfo += `\n This project welcomes contributions and suggestions and anyone can contribute to this repo.To make sure your contribution aligns with our code of conduct adopted, please make sure to review it before submitting.\n`;
+
+  contributionsInfo += `\n To contribute your own examples, \[fork the repo\]\( https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks\), \[create a new branch\]\(https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/\), make your changes or additions, and then \[submit a pull request\]\(https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requestsabout-branches\).\n`;
+  contributionsInfo += `\n Thanks to all the contributors. \n \n \!\[GitHub Contributors Image\]\(https://contrib.rocks/image?repo=${repoName}\)`
+
+
+  return contributionsInfo;
 
 }
 
@@ -198,6 +214,7 @@ function generateMarkdown(data) {
     + ((data.writeUsageScreenshot) ? renderUsageScreenshots(data.usageScreenshot) : "")
     + ((data.writeLicense) ? renderLicenseSection(data.licenseInfo) : "")
     + ((data.writeQuestions) ? renderQuestionsSection(data.questionsGitHubProfile, data.questionsEmailId) : "")
+    + ((data.writeContributions) ? renderContributionsSection(data.contributionToRepo) : "")
     ;
 
   return markdownString;

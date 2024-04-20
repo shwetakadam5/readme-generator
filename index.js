@@ -25,6 +25,8 @@ const questions = [
     [ "confirm", "writeQuestions", "Do you want to proceed to update the contact details for Questions?", "", true, [] ],
     [ "input", "questionsGitHubProfile", "Enter your Git Hub Profile:", "https://github.com/shwetakadam5", ((answers) => answers.writeQuestions), [] ],
     [ "input", "questionsEmailId", "Enter your email address:", "", ((answers) => answers.writeQuestions), [] ],
+    [ "confirm", "writeContributions", "Do you want to proceed to update the Contributions?", "", true, [] ],
+    [ "input", "contributionToRepo", "Enter the github repository name:", "shwetakadam5/readme-generator", ((answers) => answers.writeContributions), [] ],
 
 ];
 
