@@ -22,7 +22,7 @@ function renderDescription(projectMotivation, projectReason, projectSolution, pr
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
-  let markdownString = "" + renderTitle(data.title) + renderDescription(data.descMotivation, data.descReason, data.descSolution, data.descLearnings);
+  let markdownString = "" + renderTitle(data.title) + ((data.writeDesc) ? renderDescription(data.descMotivation, data.descReason, data.descSolution, data.descLearnings) : "");
 
   return markdownString;
 }
