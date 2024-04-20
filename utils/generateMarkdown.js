@@ -176,11 +176,11 @@ function renderUsageScreenshots(usageScreenshot) {
 function renderQuestionsSection(gitHubProfile, emailAddress) {
   if (!tableOfContentList.includes("Questions")) { tableOfContentList.push("Questions"); }
   //https://github.com/shwetakadam5
-  let contactInfo = `\n\n## Questions \n\t For any queries, please feel free to contact on the following :`;
+  let contactInfo = `\n\n## Questions \n\>\*For any queries, please feel free to contact on the following :\*`;
 
-  contactInfo += `\n\n\> \- Git Hub Profile : \<${gitHubProfile}\>`;
+  contactInfo += `\n\>\> \- Git Hub Profile : \<${gitHubProfile}\>`;
 
-  contactInfo += `\n\n\> \- E-mail Address : \<${emailAddress}\>`;
+  contactInfo += `\n\>\> \- E-mail Address : \<${emailAddress}\>`;
 
   return contactInfo;
 
