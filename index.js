@@ -27,7 +27,8 @@ const questions = [
     [ "input", "questionsEmailId", "Enter your email address:", "", ((answers) => answers.writeQuestions), [] ],
     [ "confirm", "writeContributions", "Do you want to proceed to update the Contributions?", "", true, [] ],
     [ "input", "contributionToRepo", "Enter the github repository name:", "shwetakadam5/readme-generator", ((answers) => answers.writeContributions), [] ],
-
+    [ "confirm", "writeTests", "Do you want to proceed to update the Tests?", "", true, [] ],
+    [ "input", "testDetails", "Enter the test details:", "", ((answers) => answers.writeTests), [] ],
 ];
 
 // TODO: Create a function to write README file

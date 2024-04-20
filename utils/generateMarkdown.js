@@ -202,19 +202,33 @@ function renderContributionsSection(repoName) {
 
 }
 
+
+//Function to render the tests
+function renderTestsSection(testDetails) {
+  if (!tableOfContentList.includes("Tests")) { tableOfContentList.push("Tests"); }
+
+  let testInfo = `\n\n## Tests`;
+  testInfo += `\n \`\`\` \n`
+  testInfo += `\n ${testDetails}\n`;
+  testInfo += `\n \`\`\` \n`
+
+  return testInfo;
+
+}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   let markdownString = ((data.writeLicense && renderLicenseBadge(data.licenseInfo) != "" && renderLicenseLink(data.licenseInfo) != "") ? `\[\!\[License\]\(${renderLicenseBadge(data.licenseInfo)}\)\]\(${renderLicenseLink(data.licenseInfo)}\)` : `\n`)
     + "\n\n"
     + renderTitle(data.title)
     + ((data.writeDesc) ? renderDescription(data.descMotivation, data.descReason, data.descSolution, data.descLearnings) : "")
-    + ((data.writeInstallation || data.writeUsage || data.writeUsageScreenshot || data.writeLicense) ? renderTableOfContents(tableOfContentList) : "")
+    + ((data.writeInstallation || data.writeUsage || data.writeUsageScreenshot || data.writeLicense || data.writeQuestions || data.writeContributions || data.writeTests) ? renderTableOfContents(tableOfContentList) : "")
     + ((data.writeInstallation) ? renderInstallationDetails(data.installationSteps) : "")
     + ((data.writeUsage) ? renderUsage(data.usageInstructions, data.usageRepoLink, data.usageAppLink) : "")
     + ((data.writeUsageScreenshot) ? renderUsageScreenshots(data.usageScreenshot) : "")
     + ((data.writeLicense) ? renderLicenseSection(data.licenseInfo) : "")
     + ((data.writeQuestions) ? renderQuestionsSection(data.questionsGitHubProfile, data.questionsEmailId) : "")
     + ((data.writeContributions) ? renderContributionsSection(data.contributionToRepo) : "")
+    + ((data.writeTests) ? renderTestsSection(data.testDetails) : "")
     ;
 
   return markdownString;

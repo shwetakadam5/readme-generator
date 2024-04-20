@@ -1,10 +1,10 @@
-[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)
+[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
 
 # Project Title
 
 ## Description 
 - Description : Motivation 
-- Description : Reason 
+-  Description : Reason 
 - Description : Solution 
 - Description : Learnings 
 
@@ -15,6 +15,7 @@
  - [License](#license) 
  - [Questions](#questions) 
  - [Contributions](#contributions) 
+ - [Tests](#tests) 
 
 
 ## Installation 
@@ -33,7 +34,7 @@
 
 
 ## License 
-> [Boost Software License 1.0](https://www.boost.org/LICENSE_1_0.txt)
+> [Eclipse Public License 2.0](https://opensource.org/licenses/EPL-1.0)
 
 ## Questions 
 >*For any queries, please feel free to contact on the following :*
@@ -50,3 +51,10 @@
  Thanks to all the contributors. 
  
  ![GitHub Contributors Image](https://contrib.rocks/image?repo=shwetakadam5/readme-generator)
+
+## Tests
+ ``` 
+
+ Tests are available in the Trello link :<>.Also following are some of the tests. Test1 : Click on the github url and  you would be redireected to the users Github Progfile
+
+ ``` 
