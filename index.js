@@ -1,10 +1,10 @@
-// TODO: Include packages needed for this application
+// Included packages needed for this application
 const inquirer = require("inquirer");
 const colors = require("colors");
 const fs = require('fs/promises');
 const { generateMarkdown } = require('./utils/generateMarkdown.js')
 
-// TODO: Create an array of questions for user input
+// Created an array of questions for user input
 const questions = [
     [ "input", "title", "What is your project title?", "defaulttitle", true, [] ],
     [ "confirm", "writeDesc", "Do you want to proceed to update the Description?", "", true, [] ],
@@ -40,10 +40,13 @@ const questions = [
     [ "input", "testDetails", "Enter the test details:", "", ((answers) => answers.writeTests), [] ],
 ];
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+// Created a function to write README file
+async function writeToFile(fileName, data) {
 
-// TODO: Create a function to initialize app
+    await fs.writeFile(fileName, data);
+}
+
+// Created a function to initialize app
 async function init() {
 
     const answer = await inquirer
@@ -59,10 +62,8 @@ async function init() {
                     validate: question[ 6 ],
                 }
             }));
-    console.log(answer);
-    console.log(generateMarkdown(answer));
 
-    await fs.writeFile("README_Generated.md", generateMarkdown(answer));
+    writeToFile("README_Generated.md", generateMarkdown(answer));
 
 }
 

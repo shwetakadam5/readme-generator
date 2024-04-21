@@ -1,6 +1,7 @@
+// Created a variable to hold the sections to be added in the table of contents
 var tableOfContentList = [];
 
-// If there is no license, return an empty string
+// Function to return the license badge for the license added. If there is no license, return an empty string
 function renderLicenseBadge(license) {
 
   switch (license) {
@@ -34,9 +35,10 @@ function renderLicenseBadge(license) {
     default: return "";
 
   }
+
 }
 
-// If there is no license, return an empty string
+// Function to return the license url link for the license added.If there is no license, return an empty string
 function renderLicenseLink(license) {
 
   switch (license) {
@@ -68,15 +70,14 @@ function renderLicenseLink(license) {
     case "The Unlicense":
       return "http://unlicense.org/";
     default: return "";
+
   }
-
-
 
 }
 
-
-// If there is no license, return an empty string
+// Function to return the license details of the license added.If there is no license, return an empty string
 function renderLicenseSection(license) {
+
   tableOfContentList.push("License");
   let licenseInfo = `\n\n## License \n`;
   if (renderLicenseLink(license) != "") {
@@ -85,15 +86,19 @@ function renderLicenseSection(license) {
     licenseInfo += `License Information Unavailable`
   }
   return licenseInfo;
+
 }
 
-//Function to render the title
+//Function to render the title section
 function renderTitle(title) {
+
   return `# ${title}`;
+
 }
 
-//Function to render the title
+//Function to render the description section : This includes adding brief description which is mandatory and other details
 function renderDescription(projectMotivation, projectReason, projectSolution, projectLearnings) {
+
   let descriptionInfo = `\n\n## Description \n`;
   if (projectMotivation != "") {
     descriptionInfo += `\- ${projectMotivation} \n`;
@@ -113,27 +118,31 @@ function renderDescription(projectMotivation, projectReason, projectSolution, pr
 
   return descriptionInfo;
 
-  //return `\n\n## Description \n \- ${projectMotivation} \n \- ${projectReason} \n \- ${projectSolution} \n \- ${projectLearnings} \n`;
 }
 
-//Function to render the table of contents
+//Function to render the table of contents section : This include updating the table of contents with appropriate place markers for the contents.
 function renderTableOfContents(tableofcontents) {
+
   let contentsList = `\n\n## Table of contents \n`;
   for (let index = 0; index < tableofcontents.length; index++) {
     contentsList += `\ \- \[${tableofcontents[ index ]}\]\(\#${tableofcontents[ index ].toLowerCase()}\) \n`;
 
   }
   return contentsList;
+
 }
 
-//Function to render the installation
+//Function to render the installation section : This includes updating the installation steps for the project
 function renderInstallationDetails(installationSteps) {
+
   tableOfContentList.push("Installation");
   return `\n\n## Installation \n\t ${installationSteps} \n`;
+
 }
 
-//Function to render the usage
+//Function to render the usage section : This includes updating the usage steps and URLs for the repository and the deployed application
 function renderUsage(usageInstructions, repoLink, appLink) {
+
   tableOfContentList.push("Usage");
   let usageInfo = `\n\n## Usage \n\t ${usageInstructions}`;
 
@@ -154,8 +163,10 @@ function renderUsage(usageInstructions, repoLink, appLink) {
 
 }
 
-//Function to render the Usage screenshot
+//Function to render the Usage screenshot : This includes adding the usage screenshot of the application/project by checking the given path
+//If the jpg file path is default then a highlighting todo note is included.
 function renderUsageScreenshots(writeUsage, usageScreenshot) {
+
   if (!tableOfContentList.includes("Usage")) { tableOfContentList.push("Usage"); }
 
   let usageScreenshotsInfo = "";
@@ -177,15 +188,16 @@ function renderUsageScreenshots(writeUsage, usageScreenshot) {
 
 }
 
-
-//Function to render the questions
+//Function to render the questions section : This includes appending the GitHub Profile name and Email Address for any queries.
+//If the GitHub profile name is not provided then a highlighting todo note is included.
 function renderQuestionsSection(gitHubProfile, emailAddress) {
+
   if (!tableOfContentList.includes("Questions")) { tableOfContentList.push("Questions"); }
 
   let contactInfo = `\n\n## Questions \n\>\*For any queries, please feel free to contact on the following :\*`;
 
   if (gitHubProfile == "https://github.com/defaultusername") {
-    contactInfo += `\n\>\> \- Git Hub Profile : \<https://github.com/📝 **Update the correct profilename**\> \n`;
+    contactInfo += `\n\>\> \- Git Hub Profile : \<https://github.com/📝 **Update the correct profilename**\>`;
   } else {
 
     contactInfo += `\n\>\> \- Git Hub Profile : \<${gitHubProfile}\>`;
@@ -197,9 +209,10 @@ function renderQuestionsSection(gitHubProfile, emailAddress) {
 
 }
 
-
-//Function to render the contributions
+//Function to render the contributions section : This includes adding the adopted code of conduct badge,
+// details on how to contribute and credit the contributors of the repository
 function renderContributionsSection(repoName) {
+
   if (!tableOfContentList.includes("Contributions")) { tableOfContentList.push("Contributions"); }
 
   let contributionsInfo = `\n\n## Contributions`;
@@ -209,14 +222,13 @@ function renderContributionsSection(repoName) {
   contributionsInfo += `\n To contribute your own examples, \[fork the repo\]\( https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks\), \[create a new branch\]\(https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/\), make your changes or additions, and then \[submit a pull request\]\(https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requestsabout-branches\).\n`;
   contributionsInfo += `\n Thanks to all the contributors. \n \n \!\[GitHub Contributors Image\]\(https://contrib.rocks/image?repo=${repoName}\)`
 
-
   return contributionsInfo;
 
 }
 
-
-//Function to render the tests
+//Function to render the tests section
 function renderTestsSection(testDetails) {
+
   if (!tableOfContentList.includes("Tests")) { tableOfContentList.push("Tests"); }
 
   let testInfo = `\n\n## Tests`;
@@ -227,7 +239,8 @@ function renderTestsSection(testDetails) {
   return testInfo;
 
 }
-// TODO: Create a function to generate markdown for README
+
+// A function to generate completed markdown for README
 function generateMarkdown(data) {
   let markdownString = ((data.writeLicense && renderLicenseBadge(data.licenseInfo) != "" && renderLicenseLink(data.licenseInfo) != "") ? `\[\!\[License\]\(${renderLicenseBadge(data.licenseInfo)}\)\]\(${renderLicenseLink(data.licenseInfo)}\)` : `\n`)
     + "\n\n"
@@ -246,6 +259,7 @@ function generateMarkdown(data) {
   return markdownString;
 }
 
+// To enable modularization
 module.exports = {
   generateMarkdown,
 };
