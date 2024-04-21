@@ -2,8 +2,6 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
 - Every open source project on GitHub requires a good wality professional README explaining what the application is for, how to use the app, how to install it and also allow other developers to make contributions to the project for its success.
 - This project was to automate the generation of a README file by using a command-line application.
 - This allows the developer to devote more time to working on the project and also to ensure that all the required details of the application is made available to the users through a concise README in much less time.
