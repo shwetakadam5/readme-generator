@@ -10,7 +10,7 @@ const questions = [
     [ "confirm", "writeDesc", "Do you want to proceed to update the Description?", "", true, [] ],
     [ "input", "descMotivation", "Enter brief description or motivation for your project:", "", ((answers) => answers.writeDesc), [], (function (descMotivation) {
 
-        return (descMotivation != "") ? true : "Brief description about the project is required";
+        return (descMotivation != "") ? true : "Brief description about the project is required.";
     }) ],
     [ "input", "descReason", "Why did you build this project?", "", ((answers) => answers.writeDesc), [] ],
     [ "input", "descSolution", "What problem does it solve?", "", ((answers) => answers.writeDesc), [] ],
@@ -22,19 +22,19 @@ const questions = [
     [ "input", "usageRepoLink", "Enter the URL for the repository:", "", ((answers) => answers.writeUsage), [] ],
     [ "input", "usageAppLink", "Enter the URL for the deployed application:", "", ((answers) => answers.writeUsage), [] ],
     [ "confirm", "writeUsageScreenshot", "Do you want to add a screenshot to Usage details? ", "", true, [] ],
-    [ "input", "usageScreenshot", "Enter the path of the screenshot:", "./assets/images/sampleImage.jpg", ((answers) => answers.writeUsageScreenshot), [] ],
+    [ "input", "usageScreenshot", "Enter the path of the screenshot:", "./assets/images/*.*", ((answers) => answers.writeUsageScreenshot), [] ],
     [ "confirm", "writeLicense", "Do you want to proceed to update the License details?", "", true, [] ],
     [ "list", "licenseInfo", "Select the License:", "", ((answers) => answers.writeLicense), [ "Apache License 2.0", "GNU General Public License v3.0", "MIT License", "BSD 2-Clause \"Simplified\" License", "BSD 3-Clause \"New\" or \"Revised\" License", "Boost Software License 1.0", "Creative Commons Zero v1.0 Universal", "Eclipse Public License 2.0", "GNU Affero General Public License v3.0", "GNU General Public License v2.0", "GNU Lesser General Public License v2.1", "Mozilla Public License 2.0", "The Unlicense" ] ],
     [ "confirm", "writeQuestions", "Do you want to proceed to update the contact details for Questions?", "", true, [] ],
     [ "input", "questionsGitHubProfile", "Enter your Git Hub Profile:", "https://github.com/defaultusername", ((answers) => answers.writeQuestions), [] ],
     [ "input", "questionsEmailId", "Enter your email address:", "", ((answers) => answers.writeQuestions), [], (function (questionsEmailId) {
         // Regex email id validation
-        return /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(questionsEmailId) ? true : "Invalid format of email";
+        return /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/.test(questionsEmailId) ? true : "Invalid format of email.";
     }) ],
     [ "confirm", "writeContributions", "Do you want to proceed to update the Contributions?", "", true, [] ],
-    [ "input", "contributionToRepo", "Enter the github repository name:", "shwetakadam5/readme-generator", ((answers) => answers.writeContributions), [], (function (contributionToRepo) {
+    [ "input", "contributionToRepo", "Enter the github repository name:", "github-profilename/repo-name", ((answers) => answers.writeContributions), [], (function (contributionToRepo) {
         // Regex repository name validation : correct format username/repositoryname : cannot start with special characters and only allowed special character is hyphen and forward slash/
-        return /^([a-zA-Z0-9]+[a-zA-Z0-9-]+)+[/]+([-a-z]+)$$/.test(contributionToRepo) ? true : "Invalid format for repository name";
+        return /^([a-zA-Z0-9]+[a-zA-Z0-9-]+)+[/]+([-a-z]+)$$/.test(contributionToRepo) ? true : "Invalid format for repository name.";
     }) ],
     [ "confirm", "writeTests", "Do you want to proceed to update the Tests?", "", true, [] ],
     [ "input", "testDetails", "Enter the test details:", "", ((answers) => answers.writeTests), [] ],
