@@ -1,6 +1,3 @@
-// Created a variable to hold the sections to be added in the table of contents
-var tableOfContentList = [];
-
 // Function to return the license badge for the license added. If there is no license, return an empty string
 function renderLicenseBadge(license) {
 
@@ -78,7 +75,6 @@ function renderLicenseLink(license) {
 // Function to return the license details of the license added.If there is no license, return an empty string
 function renderLicenseSection(license) {
 
-  tableOfContentList.push("License");
   let licenseInfo = `\n\n## License \n`;
   if (renderLicenseLink(license) != "") {
     licenseInfo += `\> \[${license}\]\(${renderLicenseLink(license)}\)`;
@@ -123,9 +119,39 @@ function renderDescription(projectMotivation, projectReason, projectSolution, pr
 //Function to render the table of contents section : This include updating the table of contents with appropriate place markers for the contents.
 function renderTableOfContents(tableofcontents) {
 
+  let tableOfContentList = [];
+
+  if (tableofcontents.writeInstallation) {
+
+    tableOfContentList.push("Installation");
+
+  }
+  if (tableofcontents.writeUsage) {
+    tableOfContentList.push("Usage");
+  }
+
+  if (!tableofcontents.writeUsage && tableofcontents.writeUsageScreenshot) {
+    tableOfContentList.push("Usage");
+  }
+
+  if (tableofcontents.writeLicense) {
+    tableOfContentList.push("License");
+  }
+
+  if (tableofcontents.writeQuestions) {
+    tableOfContentList.push("Questions");
+  }
+  if (tableofcontents.writeContributions) {
+    tableOfContentList.push("Contributions");
+  }
+  if (tableofcontents.writeTests) {
+    tableOfContentList.push("Tests");
+
+  }
+
   let contentsList = `\n\n## Table of contents \n`;
-  for (let index = 0; index < tableofcontents.length; index++) {
-    contentsList += `\ \- \[${tableofcontents[ index ]}\]\(\#${tableofcontents[ index ].toLowerCase()}\) \n`;
+  for (let index = 0; index < tableOfContentList.length; index++) {
+    contentsList += `\ \- \[${tableOfContentList[ index ]}\]\(\#${tableOfContentList[ index ].toLowerCase()}\) \n`;
 
   }
   return contentsList;
@@ -135,7 +161,6 @@ function renderTableOfContents(tableofcontents) {
 //Function to render the installation section : This includes updating the installation steps for the project
 function renderInstallationDetails(installationSteps) {
 
-  tableOfContentList.push("Installation");
   return `\n\n## Installation \n\t ${installationSteps} \n`;
 
 }
@@ -143,7 +168,6 @@ function renderInstallationDetails(installationSteps) {
 //Function to render the usage section : This includes updating the usage steps and URLs for the repository and the deployed application
 function renderUsage(usageInstructions, repoLink, appLink) {
 
-  tableOfContentList.push("Usage");
   let usageInfo = `\n\n## Usage \n\t ${usageInstructions}`;
 
   if (repoLink == "") {
@@ -166,8 +190,6 @@ function renderUsage(usageInstructions, repoLink, appLink) {
 //Function to render the Usage screenshot : This includes adding the usage screenshot of the application/project by checking the given path
 //If the jpg file path is default then a highlighting todo note is included.
 function renderUsageScreenshots(writeUsage, usageScreenshot) {
-
-  if (!tableOfContentList.includes("Usage")) { tableOfContentList.push("Usage"); }
 
   let usageScreenshotsInfo = "";
 
@@ -192,8 +214,6 @@ function renderUsageScreenshots(writeUsage, usageScreenshot) {
 //If the GitHub profile name is not provided then a highlighting todo note is included.
 function renderQuestionsSection(gitHubProfile, emailAddress) {
 
-  if (!tableOfContentList.includes("Questions")) { tableOfContentList.push("Questions"); }
-
   let contactInfo = `\n\n## Questions \n\>\*For any queries, please feel free to contact on the following :\*`;
 
   if (gitHubProfile == "https://github.com/defaultusername") {
@@ -213,8 +233,6 @@ function renderQuestionsSection(gitHubProfile, emailAddress) {
 // details on how to contribute and credit the contributors of the repository
 function renderContributionsSection(repoName) {
 
-  if (!tableOfContentList.includes("Contributions")) { tableOfContentList.push("Contributions"); }
-
   let contributionsInfo = `\n\n## Contributions`;
   contributionsInfo += `\n\[\!\[Contributor Covenant\]\(https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg\)\]\(https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md\) \n`
   contributionsInfo += `\n This project welcomes contributions and suggestions and anyone can contribute to this repo.To make sure your contribution aligns with our code of conduct adopted, please make sure to review it before submitting.\n`;
@@ -228,8 +246,6 @@ function renderContributionsSection(repoName) {
 
 //Function to render the tests section
 function renderTestsSection(testDetails) {
-
-  if (!tableOfContentList.includes("Tests")) { tableOfContentList.push("Tests"); }
 
   let testInfo = `\n\n## Tests`;
   testInfo += `\n \`\`\` \n`
@@ -246,7 +262,7 @@ function generateMarkdown(data) {
     + "\n\n"
     + renderTitle(data.title)
     + ((data.writeDesc) ? renderDescription(data.descMotivation, data.descReason, data.descSolution, data.descLearnings) : "")
-    + ((data.writeInstallation || data.writeUsage || data.writeUsageScreenshot || data.writeLicense || data.writeQuestions || data.writeContributions || data.writeTests) ? renderTableOfContents(tableOfContentList) : "")
+    + ((data.writeInstallation || data.writeUsage || data.writeUsageScreenshot || data.writeLicense || data.writeQuestions || data.writeContributions || data.writeTests) ? renderTableOfContents(data) : "")
     + ((data.writeInstallation) ? renderInstallationDetails(data.installationSteps) : "")
     + ((data.writeUsage) ? renderUsage(data.usageInstructions, data.usageRepoLink, data.usageAppLink) : "")
     + ((data.writeUsageScreenshot) ? renderUsageScreenshots(data.writeUsage, data.usageScreenshot) : "")
