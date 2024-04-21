@@ -155,20 +155,27 @@ function renderUsage(usageInstructions, repoLink, appLink) {
 }
 
 //Function to render the Usage screenshot
-function renderUsageScreenshots(usageScreenshot) {
+function renderUsageScreenshots(writeUsage, usageScreenshot) {
   if (!tableOfContentList.includes("Usage")) { tableOfContentList.push("Usage"); }
+
+  let usageScreenshotsInfo = "";
+
+  if (!writeUsage) {
+    usageScreenshotsInfo = `\n\n## Usage \n`;
+  }
 
   if (usageScreenshot == "./assets/images/*.*") {
     usageScreenshot = `./assets/images/⛔️`;
-    return `\n\!\[Image Unavailable\]\(${usageScreenshot}\) \n`;
+    usageScreenshotsInfo += `\n Usage Application Screenshot:\n`
+    usageScreenshotsInfo += `\n\!\[Image Unavailable\]\(${usageScreenshot}\) \n`;
   }
   else {
-    return `\n\!\[Image Unavailable\]\(${usageScreenshot}\) \n`;
+    usageScreenshotsInfo += `\n\!\[Image Unavailable\]\(${usageScreenshot}\) \n`;
   }
 
+  return usageScreenshotsInfo;
 
 }
-
 
 
 //Function to render the questions
@@ -229,7 +236,7 @@ function generateMarkdown(data) {
     + ((data.writeInstallation || data.writeUsage || data.writeUsageScreenshot || data.writeLicense || data.writeQuestions || data.writeContributions || data.writeTests) ? renderTableOfContents(tableOfContentList) : "")
     + ((data.writeInstallation) ? renderInstallationDetails(data.installationSteps) : "")
     + ((data.writeUsage) ? renderUsage(data.usageInstructions, data.usageRepoLink, data.usageAppLink) : "")
-    + ((data.writeUsageScreenshot) ? renderUsageScreenshots(data.usageScreenshot) : "")
+    + ((data.writeUsageScreenshot) ? renderUsageScreenshots(data.writeUsage, data.usageScreenshot) : "")
     + ((data.writeLicense) ? renderLicenseSection(data.licenseInfo) : "")
     + ((data.writeQuestions) ? renderQuestionsSection(data.questionsGitHubProfile, data.questionsEmailId) : "")
     + ((data.writeContributions) ? renderContributionsSection(data.contributionToRepo) : "")
