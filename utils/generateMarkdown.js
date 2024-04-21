@@ -177,7 +177,12 @@ function renderQuestionsSection(gitHubProfile, emailAddress) {
 
   let contactInfo = `\n\n## Questions \n\>\*For any queries, please feel free to contact on the following :\*`;
 
-  contactInfo += `\n\>\> \- Git Hub Profile : \<${gitHubProfile}\>`;
+  if (gitHubProfile == "https://github.com/defaultusername") {
+    contactInfo += `\n\>\> \- Git Hub Profile : \<https://github.com/📝 **Update the correct profilename**\> \n`;
+  } else {
+
+    contactInfo += `\n\>\> \- Git Hub Profile : \<${gitHubProfile}\>`;
+  }
 
   contactInfo += `\n\>\> \- E-mail Address : \<${emailAddress}\>`;
 
