@@ -51,11 +51,6 @@ https://github.com/shwetakadam5/readme-generator
 
 Link for the functionality demo : 
 
-
-
-![alt text](assets/images/screenshot.png)
-
-
 ## Acceptance-Criteria
 
 ```
@@ -104,10 +99,11 @@ THEN I am taken to the corresponding section of the README
 
 
 ### Test9 : If the user leaves the fields of the Repository URL, Deployed application URL , GITHUB Repository Name, GITHUB profile name , then the README is updated with indicators or highlighters against those details so that the correct values are updated manually by the user.
-URL for Repository : 📝 Update the correct URL
-URL for deployed application :📝 Update the correct URL 
-Git Hub Profile : <https://github.com/📝 **Update the correct profilename**> 
-![Image Unavailable](./assets/images/⛔️)  (If the screenshots path is not provided with filename)
+>Highlighters/Indicators to update with correct values manually 
+>>URL for Repository : 📝 Update the correct URL    
+>>URL for deployed application :📝 Update the correct URL    
+>>Git Hub Profile : <https://github.com/📝 **Update the correct profilename**>   
+>>If the screenshots path is not provided with filename under USAGE : ![Image Unavailable](./assets/images/⛔️)    
 
 ## Credits
 
