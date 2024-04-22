@@ -48,7 +48,11 @@ On completion all the questions, a README_Generated.md file will be generated fr
 https://github.com/shwetakadam5/readme-generator
 
 **Link for the functionality demo :**
+Quick Demo (Important):
 
+https://drive.google.com/file/d/1xXmgoMeF2sGWF3e0TSkJ4iNXsWBUORoe/view?usp=sharing
+
+Detailed demo : 
 https://www.loom.com/share/59817d1d157f436d9ecc1ebf3dde0cbd?sid=ec79ff18-1368-4154-b5af-733c84359a4c
 
 Usage Screenshots :
