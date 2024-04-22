@@ -43,11 +43,41 @@ SO THAT I can quickly create a professional README for a new project
 Open the terminal and navigate to the project path **\readme-generator , run the command npm start and answer the questions prompts.
 On completion all the questions, a README_Generated.md file will be generated from the inputs provided by the user.
 
-Link for the repository : 
+**Link for the repository :** 
 
 https://github.com/shwetakadam5/readme-generator
 
-Link for the functionality demo : 
+**Link for the functionality demo :**
+
+https://www.loom.com/share/59817d1d157f436d9ecc1ebf3dde0cbd?sid=ec79ff18-1368-4154-b5af-733c84359a4c
+
+Usage Screenshots :
+
+#### 1. ****README generated with details provided in the command line:****
+
+![Image Unavailable](./assets/images/readme_generator_Usage1.png) 
+![Image Unavailable](./assets/images/readme_generator_Usage2.png) 
+
+#### 2. ****README Table of contents generated with details provided in the command line:****
+
+![Image Unavailable](./assets/images/readme_generator_tableofcontents.png) 
+
+#### 3. ****README generated with default values for certain sections provided in the command line:****
+
+![Image Unavailable](./assets/images/readme_generator_DefaultHighlightingTodos.png)
+![Image Unavailable](./assets/images/readme_generator_DefaultHighlightingTodos2.png) 
+
+
+#### 4. ****README generated with license selected from the command line:****
+
+![Image Unavailable](./assets/images/readme_generator_license1.png) 
+![Image Unavailable](./assets/images/readme_generator_license2.png) 
+
+#### 5. ****Errors presented with mandatory description not provided , invalid format for email id and invalid format for repository name is provided on the command line :****
+
+![Image Unavailable](./assets/images/readme_generator_Error1.png) 
+![Image Unavailable](./assets/images/readme_generator_Error2.png) 
+
 
 ## Acceptance-Criteria
 
