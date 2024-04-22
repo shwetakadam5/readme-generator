@@ -1,9 +1,9 @@
-[![License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Project Title
 
 ## Description 
-- Project brief description 
+- Brief Description 
 - Description : Reason 
 - Description : Solution 
 - Description : Learnings 
@@ -28,18 +28,18 @@
  URL for Repository : 📝 **Update the correct URL** 
 
 
- URL for deployed application :📝 **Update the correct URL** 
+ URL for deployed application : [https://github.com](https://github.com) 
 
-![Image Unavailable](./assets/images/sampleImage.jpg) 
+![Image Unavailable](./assets/images/sampleUsageImage.jpg) 
 
 
 ## License 
-> [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0)
+> [MIT License](https://opensource.org/licenses/MIT)
 
 ## Questions 
 >*For any queries, please feel free to contact on the following :*
->> - Git Hub Profile : <https://github.com/📝 **Update the correct profilename**>
->> - E-mail Address : <username@domainname.com>
+>> - Git Hub Profile : <https://github.com/shwetakadam5>
+>> - E-mail Address : <shwetakadam5@gmail.com>
 
 ## Contributions
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) 
@@ -50,11 +50,11 @@
 
  Thanks to all the contributors. 
  
- ![GitHub Contributors Image](https://contrib.rocks/image?repo=github-profilename/repo-name&anon=1)
+ ![GitHub Contributors Image](https://contrib.rocks/image?repo=shwetakadam5/readme-generator&anon=1)
 
 ## Tests
  ``` 
 
- Test details
+ Test Details
 
  ``` 
