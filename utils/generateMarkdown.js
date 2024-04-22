@@ -238,7 +238,7 @@ function renderContributionsSection(repoName) {
   contributionsInfo += `\n This project welcomes contributions and suggestions and anyone can contribute to this repo.To make sure your contribution aligns with our code of conduct adopted, please make sure to review it before submitting.\n`;
 
   contributionsInfo += `\n To contribute your own examples, \[fork the repo\]\( https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks\), \[create a new branch\]\(https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/\), make your changes or additions, and then \[submit a pull request\]\(https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requestsabout-branches\).\n`;
-  contributionsInfo += `\n Thanks to all the contributors. \n \n \!\[GitHub Contributors Image\]\(https://contrib.rocks/image?repo=${repoName}\)`
+  contributionsInfo += `\n Thanks to all the contributors. \n \n \!\[GitHub Contributors Image\]\(https://contrib.rocks/image?repo=${repoName}&anon=1\)`
 
   return contributionsInfo;
 
